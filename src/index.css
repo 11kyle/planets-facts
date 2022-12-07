@@ -1,70 +1,35 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  body {
+    background-color: #070724;
+    background-image: url(/public/background-stars.svg);
   }
-  a:hover {
-    color: #747bff;
+}
+
+@layer components {
+  /* Headings and paragraphs */
+  .heading-xl {
+    @apply uppercase text-white text-[40px] lg:text-[80px] leading-[103px] font-antonio font-medium;
   }
-  button {
-    background-color: #f9f9f9;
+  .heading-lg {
+    @apply uppercase text-[20px] md:text-[24px] lg:text-[40px] leading-[26px] md:leading-[31px] lg:leading-[52px] -tracking-[0.75px] md:-tracking-[1.5px] font-antonio font-medium;
+  }
+  .heading-md {
+    @apply uppercase text-[9px] lg:text-[12px] leading-[10.08px] lg:leading-[25px] tracking-[1.93px] lg:tracking-[2.6px] font-spartan font-bold;
+  }
+  .heading-sm {
+    @apply uppercase text-[8px] lg:text-[11px] leading-[16px] lg:leading-[25px] tracking-[0.73px] lg:tracking-[1px] font-spartan font-bold;
+  }
+  .body {
+    @apply text-white text-[11px] lg:text-[14px] leading-[22px] lg:leading-[25px] font-spartan font-normal;
+  }
+
+  /* Buttons */
+  .btn {
+    /* Add heading-md to buttons */
+    @apply flex flex-row items-center text-white bg-transparent active:bg-[#419EBB] hover:bg-[#38384F] md:border md:border-[#38384F] md:w-full md:h-[48px] py-5 md:py-0; /* active button color will differ each page */
   }
 }
