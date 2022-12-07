@@ -5,7 +5,7 @@
 @layer base {
   body {
     background-color: #070724;
-    background-image: url(/public/background-stars.svg);
+    background-image: url(/background-stars.svg);
   }
 }
 
@@ -30,6 +30,32 @@
   /* Buttons */
   .btn {
     /* Add heading-md to buttons */
-    @apply flex flex-row items-center text-white bg-transparent active:bg-[#419EBB] hover:bg-[#38384F] md:border md:border-[#38384F] md:w-full md:h-[48px] py-5 md:py-0; /* active button color will differ each page */
+    @apply flex flex-row items-center text-white bg-transparent md:hover:bg-[#38384F] md:border md:border-[#38384F] md:w-full md:h-[48px] py-5 md:py-0; /* active button color will differ each page */
+  }
+
+  /* Planet Colors */
+  .mercury {
+    @apply md:bg-[#419EBB] border-b-4 md:border-none border-[#419EBB] pb-4 md:pb-0;
+  }
+  .venus {
+    @apply bg-[#EDA249] border-b-4 md:border-none border-[#EDA249];
+  }
+  .earth {
+    @apply bg-[#6D2ED5] border-b-4 md:border-none border-[#6D2ED5];
+  }
+  .mars {
+    @apply bg-[#D14C32] border-b-4 md:border-none border-[#D14C32];
+  }
+  .jupiter {
+    @apply bg-[#D83A34] border-b-4 md:border-none border-[#D83A34];
+  }
+  .saturn {
+    @apply bg-[#CD5120] border-b-4 md:border-none border-[#CD5120];
+  }
+  .uranus {
+    @apply bg-[#1EC1A2] border-b-4 md:border-none border-[#1EC1A2];
+  }
+  .neptune {
+    @apply bg-[#2D68F0] border-b-4 md:border-none border-[#2D68F0];
   }
 }
