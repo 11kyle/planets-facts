@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { Tab } from './components/tab';
 import { Statistic } from './components/statistic';
@@ -10,8 +10,26 @@ import planetData from './data.json';
 function App() {
   const [activePlanet, setActivePlanet] = useState('mercury');
   const [activeTab, setActiveTab] = useState('overview');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState('false');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   console.log(planetData);
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+  }
 
   function toggleMobileMenu() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -19,6 +37,8 @@ function App() {
 
   function handleActivePlanet(planet) {
     setActivePlanet(planet);
+    setActiveTab('overview');
+    setIsMobileMenuOpen(false);
   }
 
   function handleActiveTab(tab) {
@@ -33,16 +53,26 @@ function App() {
           <button className="md:hidden" onClick={toggleMobileMenu}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17"><g fill="#FFF" fillRule="evenodd"><path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z"/></g></svg>
           </button>
-          <ul className="hidden md:flex flex-row gap-x-8 md:basis-full lg:basis-0 md:justify-center">
+          {/* <ul className="closed md:flex md:flex-row md:gap-x-8 md:basis-full lg:basis-0 md:justify-center">
             {planetData.map((planet) => (
               <li className="heading-sm text-[#D8D8D8] cursor-pointer" onClick={() => handleActivePlanet(planet.name.toLowerCase())} key={planet.name}>{planet.name}</li>
             ))}
+          </ul> */}
+
+          <ul className={`${windowSize.innerWidth < 768 && isMobileMenuOpen ? "open" : "closed"} md:flex md:flex-row md:gap-x-8 md:basis-full lg:basis-0 md:justify-center`}>
+            {planetData.map((planet) => (
+              <li className="heading-sm text-[#D8D8D8] cursor-pointer" onClick={() => handleActivePlanet(planet.name.toLowerCase())} key={planet.name}>
+                {isMobileMenuOpen && <span className={`${planet.name.toLocaleLowerCase()} block rounded-full w-5 h-5 mr-4`}></span>}
+                {planet.name}
+              </li>
+            ))}
           </ul>
+
         </nav>
       </header>
 
       {planetData.filter((query) => query.name.toLowerCase() === activePlanet).map((planet) => (
-        <main className="grid grid-cols-2 gap-x-[70px] md:max-w-[689px] lg:max-w-[1110px] mx-auto" key={planet.name}>
+        <main className="grid grid-cols-2 lg:grid-cols-3 gap-x-[70px] md:max-w-[689px] lg:max-w-[1110px] mx-auto" key={planet.name}>
 
           {/* Tab Bar */}
           <div className="md:order-3 col-span-2 md:col-span-1 flex flex-row md:flex-col justify-between md:justify-center md:items-end md:gap-y-4 border-b md:border-none border-[#38384F] px-6 md:px-0">
@@ -55,18 +85,34 @@ function App() {
           </div>
 
           {/* Planet Image */}
-          {/* 
-            mercury:  mobile: 111x111, tablet:  184x184,  desktop:  290x290
-            venus:    mobile: 154x154, tablet:  253x253,  desktop:  400x400
-            earth:    mobile: 173x173, tablet:  285x285,  desktop:  450x450
-            mars:     mobile: 129x129, tablet:  213x213,  desktop:  336x336
-            jupiter:  mobile: 224x224, tablet:  369x369,  desktop:  260x260
-            saturn:   mobile: 256x256, tablet:  422x422,  desktop:  666x666
-            uranus:   mobile: 176x176, tablet:  290x290,  desktop:  458x458
-            neptune:  mobile: 173x173, tablet:  285x285,  desktop:  450x450
-          */}
-          <div className="md:order-1 col-span-2 lg:col-span-1 lg:row-span-2 w-full h-[304px] md:h-[460px] lg:h-[754px] flex flex-row justify-center">
-            <img className="w-[111px] h-[111px] md:w-[184px] md:h-[184px] lg:w-[290px] lg:h-[290px] my-auto" src={mercury} />
+          <div className="relative md:order-1 col-span-2 lg:col-span-2 lg:row-span-2 w-full h-[304px] md:h-[460px] lg:h-[754px] flex flex-row justify-center">
+            {activeTab === "overview" && 
+              <img 
+                className={`${activePlanet}-size my-auto`} 
+                src={planet.images.planet}
+                alt={planet.name}
+              />
+            }
+            {activeTab === "structure" && 
+              <img 
+                className={`${activePlanet}-size my-auto`} 
+                src={planet.images.internal}
+                alt={planet.name}
+              />
+            }
+            {activeTab === "geology" && 
+              <div className="my-auto">
+                <img 
+                  className={`${activePlanet}-size`} 
+                  src={planet.images.planet}
+                  alt={planet.name}
+                />
+                <img
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 md:-translate-y-1/2 lg:-translate-y-full w-[129px] h-[129px]" 
+                  src={planet.images.geology}
+                />
+              </div>
+            }
           </div>
 
           {/* Description */}
@@ -77,7 +123,7 @@ function App() {
           </div>
 
           {/* Statistics */}
-          <div className="order-4 col-span-2 flex flex-col md:flex-row md:justify-between gap-y-2 md:gap-x-2 mx-6 md:mx-0 mt-7 lg:mt-20 md:mb-9">
+          <div className="order-4 col-span-2 lg:col-span-3 flex flex-col md:flex-row md:justify-between gap-y-2 md:gap-x-2 mx-6 md:mx-0 mt-7 lg:mt-20 md:mb-9">
             <Statistic 
               data={planet.rotation}
               subject="Rotation Time"

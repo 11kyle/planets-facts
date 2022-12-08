@@ -35,27 +35,74 @@
 
   /* Planet Colors */
   .mercury {
+    background-color: #419EBB;
+  }
+  .venus {
+    background-color: #EDA249;
+  }
+  .earth {
+    background-color: #6D2ED5;
+  }
+  .mars {
+    @apply bg-[#D14C32];
+  }
+  .jupiter {
+    @apply bg-[#D83A34];
+  }
+  .saturn {
+    @apply bg-[#CD5120];
+  }
+  .uranus {
+    @apply bg-[#1EC1A2];
+  }
+  .neptune {
+    @apply bg-[#2D68F0];
+  }
+  /* Planet Colors */
+  /* .mercury {
     @apply md:bg-[#419EBB] border-b-4 md:border-none border-[#419EBB] pb-4 md:pb-0;
   }
   .venus {
-    @apply bg-[#EDA249] border-b-4 md:border-none border-[#EDA249];
+    @apply md:bg-[#EDA249] border-b-4 md:border-none border-[#EDA249] pb-4 md:pb-0;
   }
   .earth {
-    @apply bg-[#6D2ED5] border-b-4 md:border-none border-[#6D2ED5];
+    @apply md:bg-[#6D2ED5] border-b-4 md:border-none border-[#6D2ED5] pb-4 md:pb-0;
   }
   .mars {
-    @apply bg-[#D14C32] border-b-4 md:border-none border-[#D14C32];
+    @apply md:bg-[#D14C32] border-b-4 md:border-none border-[#D14C32] pb-4 md:pb-0;
   }
   .jupiter {
-    @apply bg-[#D83A34] border-b-4 md:border-none border-[#D83A34];
+    @apply md:bg-[#D83A34] border-b-4 md:border-none border-[#D83A34] pb-4 md:pb-0;
   }
   .saturn {
-    @apply bg-[#CD5120] border-b-4 md:border-none border-[#CD5120];
+    @apply md:bg-[#CD5120] border-b-4 md:border-none border-[#CD5120] pb-4 md:pb-0;
   }
   .uranus {
-    @apply bg-[#1EC1A2] border-b-4 md:border-none border-[#1EC1A2];
+    @apply md:bg-[#1EC1A2] border-b-4 md:border-none border-[#1EC1A2] pb-4 md:pb-0;
   }
   .neptune {
-    @apply bg-[#2D68F0] border-b-4 md:border-none border-[#2D68F0];
+    @apply md:bg-[#2D68F0] border-b-4 md:border-none border-[#2D68F0] pb-4 md:pb-0;
+  } */
+
+  /* 
+  mercury:  mobile: 111x111, tablet:  184x184,  desktop:  290x290
+  venus:    mobile: 154x154, tablet:  253x253,  desktop:  400x400
+  earth:    mobile: 173x173, tablet:  285x285,  desktop:  450x450
+  mars:     mobile: 129x129, tablet:  213x213,  desktop:  336x336
+  jupiter:  mobile: 224x224, tablet:  369x369,  desktop:  260x260
+  saturn:   mobile: 256x256, tablet:  422x422,  desktop:  666x666
+  uranus:   mobile: 176x176, tablet:  290x290,  desktop:  458x458
+  neptune:  mobile: 173x173, tablet:  285x285,  desktop:  450x450 
+  */
+
+  /* Navbar */
+  .open {
+    @apply z-50 absolute flex flex-col top-[68px] left-0 bg-[#070724] w-screen h-screen px-4;
+  }
+  .open > li {
+    @apply flex flex-row items-center text-[15px] leading-[25px] tracking-[1.36px] font-spartan font-bold border-t border-[#38384F] py-5;
+  }
+  .closed {
+    @apply hidden;
   }
 }
