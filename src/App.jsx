@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { Tab } from './components/tab';
 import { Statistic } from './components/statistic';
-import mercury from './assets/planet-mercury.svg';
 
 import planetData from './data.json';
 
