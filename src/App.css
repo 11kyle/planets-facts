@@ -1,50 +1,58 @@
 .mercury-size {
-    @apply w-[111px] h-[111px] md:w-[184px] md:h-[184px] lg:w-[290px] lg:h-[290px];
-  }
-  .venus-size {
-    @apply w-[154px] h-[154px] md:w-[253px] md:h-[253px] lg:w-[400px] lg:h-[400px];
-  }
-  .earth-size {
-    @apply w-[173px] h-[173px] md:w-[285px] md:h-[285px] lg:w-[450px] lg:h-[450px];
-  }
-  .mars-size {
-    @apply w-[129px] h-[129px] md:w-[213px] md:h-[213px] lg:w-[336px] lg:h-[336px];
-  }
-  .jupiter-size {
-    @apply w-[224px] h-[224px] md:w-[369px] md:h-[369px] lg:w-[582px] lg:h-[582px];
-  }
-  .saturn-size {
-    @apply w-[256px] h-[256px] md:w-[422px] md:h-[422px] lg:w-[666px] lg:h-[666px];
-  }
-  .uranus-size {
-    @apply w-[176px] h-[176px] md:w-[290px] md:h-[290px] lg:w-[458px] lg:h-[458px];
-  }
-  .neptune-size {
-    @apply w-[173px] h-[173px] md:w-[285px] md:h-[285px] lg:w-[450px] lg:h-[450px];
-  }
+  @apply w-[111px] h-[111px] md:w-[184px] md:h-[184px] lg:w-[290px] lg:h-[290px];
+}
+.venus-size {
+  @apply w-[154px] h-[154px] md:w-[253px] md:h-[253px] lg:w-[400px] lg:h-[400px];
+}
+.earth-size {
+  @apply w-[173px] h-[173px] md:w-[285px] md:h-[285px] lg:w-[450px] lg:h-[450px];
+}
+.mars-size {
+  @apply w-[129px] h-[129px] md:w-[213px] md:h-[213px] lg:w-[336px] lg:h-[336px];
+}
+.jupiter-size {
+  @apply w-[224px] h-[224px] md:w-[369px] md:h-[369px] lg:w-[582px] lg:h-[582px];
+}
+.saturn-size {
+  @apply w-[256px] h-[256px] md:w-[422px] md:h-[422px] lg:w-[666px] lg:h-[666px];
+}
+.uranus-size {
+  @apply w-[176px] h-[176px] md:w-[290px] md:h-[290px] lg:w-[458px] lg:h-[458px];
+}
+.neptune-size {
+  @apply w-[173px] h-[173px] md:w-[285px] md:h-[285px] lg:w-[450px] lg:h-[450px];
+}
 
-
-  .mercury {
-    @apply bg-[#419EBB] border-b-4 md:border-none border-[#419EBB] pb-4 md:pb-0;
-  }
-  .venus {
-    @apply bg-[#EDA249] border-b-4 md:border-none border-[#EDA249] pb-4 md:pb-0;
-  }
-  .earth {
-    @apply bg-[#6D2ED5] border-b-4 md:border-none border-[#6D2ED5] pb-4 md:pb-0;
-  }
-  .mars {
-    @apply bg-[#D14C32] border-b-4 md:border-none border-[#D14C32] pb-4 md:pb-0;
-  }
-  .jupiter {
-    @apply bg-[#D83A34] border-b-4 md:border-none border-[#D83A34] pb-4 md:pb-0;
-  }
-  .saturn {
-    @apply bg-[#CD5120] border-b-4 md:border-none border-[#CD5120] pb-4 md:pb-0;
-  }
-  .uranus {
-    @apply bg-[#1EC1A2] border-b-4 md:border-none border-[#1EC1A2] pb-4 md:pb-0;
-  }
-  .neptune {
-    @apply bg-[#2D68F0] border-b-4 md:border-none border-[#2D68F0] pb-4 md:pb-0;
-  }
+.mercury {
+  background-color: #419EBB;
+}
+.venus {
+  background-color: #EDA249;
+}
+.earth {
+  background-color: #6D2ED5;
+}
+/* .mercury {
+  @apply md:bg-[#419EBB] border-b-4 md:border-none border-[#419EBB] pb-4 md:pb-0;
+}
+.venus {
+  @apply md:bg-[#EDA249] border-b-4 md:border-none border-[#EDA249] pb-4 md:pb-0;
+}
+.earth {
+  @apply bg-[#6D2ED5] border-b-4 md:border-none border-[#6D2ED5] pb-4 md:pb-0;
+}
+.mars {
+  @apply bg-[#D14C32] border-b-4 md:border-none border-[#D14C32] pb-4 md:pb-0;
+}
+.jupiter {
+  @apply bg-[#D83A34] border-b-4 md:border-none border-[#D83A34] pb-4 md:pb-0;
+}
+.saturn {
+  @apply bg-[#CD5120] border-b-4 md:border-none border-[#CD5120] pb-4 md:pb-0;
+}
+.uranus {
+  @apply bg-[#1EC1A2] border-b-4 md:border-none border-[#1EC1A2] pb-4 md:pb-0;
+}
+.neptune {
+  @apply bg-[#2D68F0] border-b-4 md:border-none border-[#2D68F0] pb-4 md:pb-0;
+} */

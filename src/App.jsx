@@ -37,7 +37,7 @@ function App() {
 
   function handleActivePlanet(planet) {
     setActivePlanet(planet);
-    setActiveTab('overview');
+    // setActiveTab('overview');
     setIsMobileMenuOpen(false);
   }
 
@@ -77,7 +77,7 @@ function App() {
           {/* Tab Bar */}
           <div className="md:order-3 col-span-2 md:col-span-1 flex flex-row md:flex-col justify-between md:justify-center md:items-end md:gap-y-4 border-b md:border-none border-[#38384F] px-6 md:px-0">
             {["overview", "structure", "geology"].map((tab, index) => (
-              <div className={`${activeTab === tab && activePlanet} heading-md btn flex flex-row justify-center md:justify-start cursor-pointer`} key={tab} onClick={() => handleActiveTab(tab)}>
+              <div className={`${activeTab === tab ? activePlanet : ""} heading-md btn flex flex-row justify-center md:justify-start cursor-pointer`} key={tab} onClick={() => handleActiveTab(tab)}>
                 <span className="hidden md:block text-[#D8D8D8] ml-5 mr-4">0{index + 1}</span><span>{tab}</span>
               </div>
               // <Tab key={tab}><span className="hidden md:block text-[#D8D8D8] ml-5 mr-4">0{index + 1}</span><span>{tab}</span></Tab>
